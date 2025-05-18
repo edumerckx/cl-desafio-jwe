@@ -1,0 +1,30 @@
+services:
+  logindb:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: logindb
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+  app:
+    image: cl_jwe
+    entrypoint: ./entrypoint.sh
+    build: .
+    depends_on:
+      - logindb
+    ports:
+      - "3000:3000"
+    environment:
+      - HTTP_PORT=3000
+      - PUBLIC_KEY_FILE=./dev-public.pem
+      - PRIVATE_KEY_FILE=./dev-private.pem
+      - ALGORITHM=RSA-OAEP
+      - ENCRYPT_ALGORITHM=A128GCM
+      - DATABASE_URL=postgresql://postgres:postgres@logindb:5432/logindb
+
+
+volumes:
+  pgdata:
