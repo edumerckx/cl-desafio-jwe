@@ -5,7 +5,7 @@ import { validateLogin } from '../validation';
 const router = express.Router();
 
 router.post('/login', validateLogin, controller.login);
-router.post('/decrypt', controller.jwe);
+router.post('/decrypt', controller.decrypt);
 router.get('/history', controller.history);
 
 export default router;

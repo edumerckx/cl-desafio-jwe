@@ -61,7 +61,7 @@ describe('controller', () => {
         body: { encrypted }
       };
 
-      await controller.jwe(req as Request, res as Response);
+      await controller.decrypt(req as Request, res as Response);
 
       expect(services.decrypt).toHaveBeenCalledWith(encrypted);
       expect(jsonMock).toHaveBeenCalledWith(decryptedData);

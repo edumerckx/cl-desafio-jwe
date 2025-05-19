@@ -7,7 +7,7 @@ export const controller = {
     const encrypted = await services.login(email, password);
     res.json({ encrypted });
   },
-  jwe: async (req: Request, res: Response) => {
+  decrypt: async (req: Request, res: Response) => {
     const { encrypted } = req.body;
     const data = await services.decrypt(encrypted);
     res.json(data);

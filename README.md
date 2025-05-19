@@ -27,7 +27,6 @@ cd cl-desafio-jwe
 docker-compose up --build
 ```
 > [!CAUTION]
-> :warning: **Atenção!** :warning:
 > 
 > As variáveis de ambiente estão configuradas no arquivo _docker-compose.yml_ por este ser apenas um repositório de **TESTE**. Por este mesmo motivo estão disponíveis tambéms as chaves [**dev-private.pem**](dev-private.pem) e [**dev-public.pem**](dev-public.pem).
 > Como boas práticas de desenvolvimento e segurança, essas informações devem ser configuradas no ambiente.
@@ -44,7 +43,6 @@ docker-compose up --build
 Com a aplicação rodando, é possível acessar o _swagger_ através do [/docs](http://localhost:3000/docs)
 
 > [!NOTE]
-> :information_source: **Info**
 > 
 > Durante a codificação dos testes, foi utilizado LLM para geração de _mocks_ (ajustados parcialmente)
 
