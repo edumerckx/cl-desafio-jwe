@@ -18,10 +18,15 @@ API _restful_ para demonstração de login de usuário utilizando JWE (JSON Web 
 
 ## Como executar a aplicação
 
-Para executar a aplicação é necessário ter o _docker_ instalado. Com isso, executar o compose conforme o comando abaixo:
+Para executar a aplicação é necessário ter o _docker_ instalado. Com isso, executar os comandos abaixo:
 ```sh
+git clone git@github.com:edumerckx/cl-desafio-jwe.git
+
+cd cl-desafio-jwe
+
 docker-compose up --build
 ```
+> [!CAUTION]
 > :warning: **Atenção!** :warning:
 > 
 > As variáveis de ambiente estão configuradas no arquivo _docker-compose.yml_ por este ser apenas um repositório de **TESTE**. Por este mesmo motivo estão disponíveis tambéms as chaves [**dev-private.pem**](dev-private.pem) e [**dev-public.pem**](dev-public.pem).
@@ -37,3 +42,14 @@ docker-compose up --build
 > ```
 
 Com a aplicação rodando, é possível acessar o _swagger_ através do [/docs](http://localhost:3000/docs)
+
+> [!NOTE]
+> :information_source: **Info**
+> 
+> Durante a codificação dos testes, foi utilizado LLM para geração de _mocks_ (ajustados parcialmente)
+
+## Endpoints
+
+- POST /login - _encripta_ e armazena dados enviados. Retorna payload _encriptado
+- POST /decrypt - _decripta_ o dado gerado no primeiro endpoint
+- GET /history - retorna os dados armazenados por */login*. Note que não é utilizado nenhum mecanisto de _hashing/criptogafria_ para armazanezar a senha pelo mesmo motivo já citado no bloco sobre as chaves.
