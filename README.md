@@ -42,6 +42,8 @@ docker-compose up --build
 
 Com a aplicação rodando, é possível acessar o _swagger_ através do [/docs](http://localhost:3000/docs)
 
+![swagger](swagger-cl.png)
+
 > [!NOTE]
 > 
 > Durante a codificação dos testes, foi utilizado LLM para geração de _mocks_ (ajustados parcialmente)
